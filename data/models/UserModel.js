@@ -1,5 +1,6 @@
 const { domain, api_key } = require('../../config').mailgun
 const EmailService = require('../../services/mailgun/emailLists')
+const DB = require('../../services/db')
 
 class UserModel {
     constructor(user) {
@@ -15,6 +16,7 @@ class UserModel {
             }
         }
         this.emailService = new EmailService({ apiKey: api_key, domain })
+        this.db = new DB(this.id)
     }
 }
 

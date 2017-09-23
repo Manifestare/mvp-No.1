@@ -38,9 +38,24 @@ type Query {
 
     # get a member from an email list
     member(emailListAddress: String!, memberAddress: String!): Member!
+}
 
-    # get all members from an email list
-    members(emailListAddress: String!): [Member!]!
+type Email {
+    # Email address for From header
+    from: String!
+
+    # Email address of the recipient(s). Sepearated by commas
+    to: String!
+
+    cc: String
+    bcc: String
+    subject: String!
+
+    # Body of the message. (text version)
+    text: String!
+
+    # Body of the message. (HTML version)
+    html: String!
 }
 
 input MemberInput {
@@ -49,14 +64,83 @@ input MemberInput {
     subscribed: Boolean
 }
 
-input MemberListInput {
+input addMembersToEmailListInput {
+    emailListAddress: String!
     members: [MemberInput]
     subscribed: Boolean
 }
 
+input EmailInput {
+    # Email address for From header
+    from: String!
+
+    # Email address of the recipient(s). Sepearated by commas
+    to: [String]!
+
+    cc: String
+    bcc: String
+    subject: String!
+
+    # Body of the message. (text version)
+    text: String!
+
+    # Body of the message. (HTML version)
+    html: String!
+}
+
+input removeMemberFromEmailListInput {
+    emailListAddress: String!
+    memberAddress: String!
+}
+
+input SendEmailInput {
+    # From should be an email list on your account.
+    email: EmailInput!
+}
+
+input SendEmailToEmailListMembersInput {
+    # From should be an email list on your account.
+    email: EmailInput!
+}
+
+type EmailMessage {
+    subject: String!
+    text: String
+    html: String
+}
+
+input EmailMessageInput {
+  subject: String!
+  text: String
+  html: String
+}
+
+type AutoResponseEmail {
+    email: EmailMessage!
+    emailListAddress: String!
+    emailId: Int!
+    email: EmailMessage!
+}
+
+type ScheduledEmail {
+    when: String!
+    end: String!
+    emailId: Int!
+    email: EmailMessage!
+}
+
+input createAutoResponseInput {
+    emailListAddress: String!
+    emailMessage: EmailMessageInput!
+}
+
 type Mutation {
-    addMembersToEmailList(emailListAddress: String!, memberList: MemberListInput): EmailList
-    removeMemberFromEmailList(emailListAddress: String!, memberAddress: String!): Member
+    addMembersToEmailList(input: addMembersToEmailListInput!): EmailList!
+    removeMemberFromEmailList(input: removeMemberFromEmailListInput!): Member!
+#    sendEmail(input: SendEmailInput!): Email!
+#    sendEmailToEmailListMembers(input: SendEmailToEmailListMembersInput!): Email!
+#    createAutoResponse(input: createAutoResponseInput!): AutoResponseEmail!
+#    scheduleTimedEmail(input: scheduleTimedEMailInput!): ScheduledEmail!
 }
 `
 

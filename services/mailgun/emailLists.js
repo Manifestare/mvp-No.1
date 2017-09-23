@@ -26,6 +26,9 @@ class EmailService {
     removeMemberFromEmailList(emailListAddress, memberAddress) {
         return this._mailgun.lists(emailListAddress).members(memberAddress).delete().then(res => res.member)
     }
+    sendEmail(attributes) {
+        return this._mailgun.messages().send({ attributes })
+    }
 }
 
 // getEmailLists("test_list@mgmail.manifestare.com", "veterinsislive09@yahoo.com")
