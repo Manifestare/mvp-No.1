@@ -1,0 +1,24 @@
+header {
+  height: 80px;
+  width: 100%;
+  position: fixed;
+    .header {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    background-color: darken(rgb(20, 20, 170), 10%);
+    color: white;
+    align-items: center;
+    .logo {
+      text-align: center;
+    }
+    .items {
+      display: flex;
+      flex-direction: row-reverse;
+      .item {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+    }
+  }
+}

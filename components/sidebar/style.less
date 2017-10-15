@@ -1,0 +1,42 @@
+@import "styles/global.less";
+
+// need to add media queries to this
+.sidebar {
+  position: fixed;
+  background-color: @color-sidebar-bg;
+  width: 20%;
+  height: 100%;
+  z-index: 1;
+  a {
+    text-decoration: none;
+
+    &:hover {
+        background-color: @bg-color-current
+    }
+    &:active {
+        background-color: @bg-color-current
+    }
+  }
+  hr {
+    grid-area: line;
+  }
+  .item {
+    color: @color-sidebar-text;
+    display: grid;
+    height: 50px;
+    grid-template-columns: 60px 5fr;
+    align-items: center;
+    grid-template-areas: "image text";
+    .image {
+      grid-area: image;
+      img {
+        max-width: 25px;
+        margin: auto;
+        display: block;
+      }
+    }
+    span {
+      grid-area: text;
+    }
+  }
+}

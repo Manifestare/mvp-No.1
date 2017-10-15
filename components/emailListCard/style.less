@@ -1,0 +1,42 @@
+@import 'styles/global.less';
+
+.card-holder {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 40px;
+  grid-row-gap: 20px;
+
+  a {
+    text-decoration: none;
+  }
+
+  .card {
+      height: 200px;
+      background-color: rgba(0,51, 102, .15);
+      border-radius: 5px;
+      text-align: center;
+  }
+
+  .card-details {
+      margin-top: 35px;
+  }
+  .card-title {
+      color:@color-sidebar-bg;
+      text-align: center;
+      text-decoration: none;
+
+  }
+
+  .card-subscribers {
+      color:@bg-color-current;
+      text-align: center;text-decoration: none;
+      font-size:28px;
+      font-weight: bold;
+  }
+
+  .card-subscribers-description {
+      color:@color-sidebar-text;
+      text-align: center;text-decoration: none;
+  }
+}

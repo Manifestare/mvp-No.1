@@ -7,6 +7,7 @@ const handle = app.getRequestHandler()
 
 const emailRouter = require('./serverRoutes/email')
 const graphqlRouter = require('./serverRoutes/graphql')
+const listsRouter = require('./serverRoutes/lists')
 
 app.prepare()
 .then(() => {
@@ -15,6 +16,8 @@ app.prepare()
     server.use('/graphql', graphqlRouter())
 
     server.use('/email', emailRouter(app))
+
+    server.use('/lists', listsRouter(app))
 
     server.get ('/post/:id', (req, res) => {
         const actualPage = '/post'

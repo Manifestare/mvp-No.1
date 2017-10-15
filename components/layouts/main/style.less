@@ -1,0 +1,27 @@
+.page-body {
+    margin-left: 25%;
+    padding: 5px 61px 16px 21px;
+}
+
+.main-layout {
+  display: grid;
+  grid-template-columns: 20% 2fr;
+  grid-template-rows: 80px 1fr;
+  grid-template-areas:
+    "header header"
+    "sidebar content";
+
+  .header-area {
+    grid-area: header;
+  }
+
+  .sidebar-area {
+    grid-area: sidebar;
+  }
+
+  .content-area {
+    grid-area: content;
+    box-sizing: border-box;
+    padding: 5px 61px 16px 21px;
+  }
+}

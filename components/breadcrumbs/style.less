@@ -1,0 +1,28 @@
+@import 'styles/global.less';
+
+.breadcrumb{
+    ul{
+        padding: 0px 0px;
+        list-style: none;
+        height: 40px;
+    }
+    li{
+        display: inline;
+        font-size: 14px;
+        color: @color-sidebar-bg;
+        & a{
+            color:@color-text-gray;
+            text-decoration: none;
+            &:hover{
+                color: @color-sidebar-bg;
+                text-decoration: none;
+            }
+        }
+
+    }
+    li+li:before{
+        padding: 8px;
+        color: @color-text-gray;
+        content: ">\00a0";
+    }
+}

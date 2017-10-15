@@ -1,0 +1,37 @@
+.email-list {
+  display: grid;
+  grid-template-rows: 50px 50px 1fr;
+  grid-template-columns: 1fr;
+  align-items: center;
+  .categories {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    .category {
+      box-sizing: border-box;
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+  }
+  .filters {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    align-items: center;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+    height: 100%;
+    .filter {
+      height: 100%;
+      // text-align: center;
+      :first-child {
+        border-right: 1px solid gray
+      }
+    }
+  }
+  .email-items {
+    .email {
+      border-bottom: 1px solid gray;
+    }
+  }
+}

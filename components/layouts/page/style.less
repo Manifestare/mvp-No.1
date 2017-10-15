@@ -1,0 +1,30 @@
+@import 'styles/global.less';
+
+.page-layout {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas:
+    "breadcrumbs breadcrumbs breadcrumbs breadcrumbs"
+    "title title . button"
+    "content content content content";
+
+  .breadcrumbs-area {
+    grid-area: breadcrumbs;
+    height: 40px;
+    border-bottom: 1px solid @color-sidebar-bg;
+  }
+
+  .title-area {
+    grid-area: title;
+    height: 200px;
+    align-self: center;
+  }
+
+  .nav-button-area {
+    grid-area: button;
+  }
+
+  .content-area {
+    grid-area: content;
+  }
+}
